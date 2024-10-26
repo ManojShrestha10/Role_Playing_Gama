@@ -89,7 +89,19 @@ function buyHealth() {
     text.innerText = "You do not have enough gold to buy health.";
   }
 }
-function buyWeapon() {}
+function buyWeapon() {
+  if(gold >= 30){
+    gold-=30;
+    currentWeaponIndex++;
+    let newWeapon = weapons[currentWeaponIndex].name;
+    goldText.innerText = gold;
+    text.innerText = "You now have a new weapon.";
+
+  }else{
+    text.innerText = "You do not have enough gold to buy weapon";
+  }
+
+}
 
 function update(location) {
   button1.innerText = location["button text"][0];
