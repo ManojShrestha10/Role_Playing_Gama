@@ -78,6 +78,12 @@ const locations = [
     "button functions": [fightSlime, fightBeast, goTown],
     text: "You enter the cave. You see some monsters.",
   },
+  {
+    name: "fight",
+    "button text": ["Attack", "Dodge", "Run"],
+    "button function": [attack, dodge, goTown],
+    text: "You are fighting a monster",
+  },
 ];
 //initialize buttons
 button1.onclick = goStore;
@@ -162,10 +168,14 @@ function sellWeapon() {
     text.innerText = "Don't sell your only weapon!";
   }
 }
-
-function attack(){
-
+function goFight() {
+  update(locations[3]);
+  monsterHealth = monsters[fighting].health;
+  monsterStats.style.display = "block";
+  monsterName.innerText = monsters[fighting].name;
+  monsterHealthText.innerText = monsterHealth;
 }
-function dodge(){
-  
+function attack() {
+  text.innerText = "The " + monsters[fighting].name + " attacks.";
 }
+function dodge() {}
